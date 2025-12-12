@@ -293,6 +293,85 @@ main {
     transform: scale(1.03);
 }
 
+.about-subtitle {
+    font-size: var(--font-size-small);
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem !important;
+}
+
+/* CV Sections */
+.cv-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--light-gray);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.cv-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cv-column h3 {
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    color: var(--gray);
+}
+
+.cv-list {
+    list-style: none;
+}
+
+.cv-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+}
+
+.cv-year {
+    font-size: var(--font-size-small);
+    color: var(--gray);
+    flex-shrink: 0;
+    min-width: 90px;
+}
+
+.cv-title {
+    font-size: var(--font-size-small);
+    flex: 1;
+}
+
+.cv-detail {
+    font-size: var(--font-size-small);
+    color: var(--gray);
+}
+
+.skills-group {
+    margin-bottom: 1.5rem;
+}
+
+.skills-group h4 {
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.skills-group p {
+    font-size: var(--font-size-small);
+    color: var(--gray);
+}
+
 /* Contact Page */
 .contact-content {
     display: grid;
@@ -479,7 +558,8 @@ main {
 
     .about-content,
     .contact-content,
-    .project-description {
+    .project-description,
+    .cv-section {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
