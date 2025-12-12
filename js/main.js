@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe all animated elements
-    const animatedElements = document.querySelectorAll('.fade-in, .project-card, .gallery-item, .about-text, .about-image, .contact-info, .project-text, .project-specs');
+    const animatedElements = document.querySelectorAll('.fade-in, .project-card, .gallery-item, .about-text, .about-image, .contact-info, .project-text, .project-specs, .cv-section');
     animatedElements.forEach(el => {
         observer.observe(el);
     });
