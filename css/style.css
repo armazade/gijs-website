@@ -620,3 +620,29 @@ main {
     background: var(--black);
     color: var(--white);
 }
+
+/* Footer */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+    font-size: 0.7rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 999;
+}
+
+.site-footer a {
+    color: var(--gray);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.site-footer a:hover {
+    color: var(--black);
+    border-bottom-color: var(--black);
+    opacity: 1;
+}
