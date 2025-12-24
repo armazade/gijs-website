@@ -4,6 +4,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fade in page on load
     document.body.classList.add('loaded');
 
+    // Image Modal
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = '<button class="image-modal-close" aria-label="Close"></button><img src="" alt="">';
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('img');
+    const modalClose = modal.querySelector('.image-modal-close');
+
+    function openModal(src, alt) {
+        modalImg.src = src;
+        modalImg.alt = alt || '';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Click on gallery/project images to open modal
+    document.querySelectorAll('.gallery-item img, .project-main-image img').forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(img.src, img.alt);
+        });
+    });
+
+    // Close modal on overlay click, close button, or Escape key
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target === modalClose) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
     // Intersection Observer for scroll animations
     const observerOptions = {
         root: null,

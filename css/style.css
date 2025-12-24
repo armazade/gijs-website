@@ -621,6 +621,81 @@ main {
     color: var(--white);
 }
 
+/* Image Modal */
+.image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+    cursor: zoom-out;
+}
+
+.image-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform var(--transition);
+}
+
+.image-modal.active img {
+    transform: scale(1);
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.image-modal-close::before,
+.image-modal-close::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 1px;
+    background: var(--white);
+    transition: transform var(--transition);
+}
+
+.image-modal-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.image-modal-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.image-modal-close:hover::before,
+.image-modal-close:hover::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Clickable images cursor */
+.gallery-item img,
+.project-main-image img {
+    cursor: zoom-in;
+}
+
 /* Footer */
 .site-footer {
     position: fixed;
